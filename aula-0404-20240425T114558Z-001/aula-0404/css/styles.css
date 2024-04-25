@@ -1,0 +1,130 @@
+:root{
+    --color-light: #ffffff;
+    --color-dark: black;
+    --color-pink: #dc143c;
+    --transition: .5s;
+    --font-body: "Poppins", sans-serif; 
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+ul,ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-light);
+    font-weight: 700;
+}
+
+a:hover{
+    color: var(--color-pink);
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0, .8),rgba(0,0,0, .3)), 
+    url(../images/pexels-felix-mittermeier-957002.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    
+}
+
+.container h1{
+    color: var(--color-light);
+}
+
+.container ul{
+    display: flex;
+    gap: 20px;
+}
+.header-page{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.hero{
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: var(--color-light);
+}
+.hero h2{
+    font-size: clamp(24px 6vmin 40px);
+}
+.hero h3{
+    font-size: clamp(20px 5vmin 38px);
+}
+.btn{
+    border: 3px solid var(--color-pink);
+    padding: 8px 30px;
+    background-color: var(--color-pink);
+    border-radius: 70px; 
+    transition: background-color var(--transition);
+}
+.btn:hover{
+    background-color: transparent;  
+}
+
+/* fim hero menu  */
+.cards{
+    width: 90%;
+    margin: 50px auto;
+}
+.cards h2{
+    margin: 50px 0;
+}
+.card-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.card-item{
+    width: 40%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 1px 1px 30px #ccc;
+    border-radius: 7px;
+    transition: scale .7s;
+}
+.card-item:hover{
+    scale: 1.1;
+}
+.cards-item img{
+    width: 80%;
+}
+
+.card-item h3{
+    font-size: 20px;
+}
+.card-item p{
+    width: 70%;
+    text-wrap:balace;
+
+}
