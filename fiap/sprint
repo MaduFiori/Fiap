@@ -1,0 +1,64 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        int cont=0, distancia=0;
+        string direcao=0;
+
+        System.out.println(" Coordenadas para o robô ");
+        System.out.println(" ( cada quadrado vale por 10 )");
+        System.out.println("     ");
+
+        while(cont == 5){
+          System.out.println("Digite a direção que o robô deve ir: ")
+          direcao = teclado.next().toUpperCase().charAt(0);
+          //Instrução para o usuário digitar a direção
+          System.out.println("Digite a distância a ser percorrida: ")
+          distancia = teclado.nextInt();
+          cont++;
+          System. out. println("---------------------------------------------")
+
+            switch (cont) {
+                case 1:
+                  if(direcao != "direita" | distancia != 110){
+                    System.out.println("!!! Coordenadas erradas, tente novamente !!!")
+                    System.out.println("--------------------------------------------")
+                    cont--1;
+                  }
+                  break;
+              case 2:
+                  if(direcao != "baixo" | distancia != 140){
+                    System.out.println("!!! Coordenadas erradas, tente novamente !!!")
+                    System.out.println("--------------------------------------------")
+                    cont--1;
+                  }
+                  break;
+              case 3:
+                if(direcao != "esquerda" | distancia != 100){
+                    System.out.println("!!! Coordenadas erradas, tente novamente !!!")
+                    System.out.println("--------------------------------------------")
+                    cont--1;
+                  }  
+                  break;
+              case 4:
+                  if(direcao != "cima" | distancia != 70){
+                    System.out.println("!!! Coordenadas erradas, tente novamente !!!")
+                    System.out.println("--------------------------------------------")
+                    cont--1;
+                  }
+                  break;
+              case 5:
+                  if(direcao != "direita" | distancia != 190){
+                    System.out.println("!!! Coordenadas erradas, tente novamente !!!")
+                    System.out.println("--------------------------------------------")
+                    cont--1;
+                  }
+                  break;
+            }
+        }
+        System.out.println("O robô chegou até o troféu, PARABÉNS!!!!")
+    }
+}
