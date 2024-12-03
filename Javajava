@@ -1,0 +1,82 @@
+package fiap;
+import java.util.Scanner;
+//i linha - j coluna
+public class estexame {
+	static Scanner teclado = new Scanner(System.in);
+	public static void main(String[] args) {
+		String [] revistas  =  new String [] {"Exame","Placar","QuatroRodas","Viagem"};
+		double [] valorRevista = new double [] {12,20,24,18};
+		String [] estados = new String [] {"RJ","MG","SP"};
+		int [][] matriz = new int [4][3];
+		
+		//a
+		double somaVendas = 0; // para somar o numero de vendas
+		double [] somaRevista = new double [4]; // para somar a qtd de revistas
+		double porcentagem = 0;
+		
+		//b
+		double [] qtdVendasEstado = new double [3];
+		
+		//c
+		double menorVenda = 0;
+		int indicadorC = 0;
+		
+		//d
+		double [] maiorCirculacao = new double [3];
+		int [] indicadorD = new int [3];
+		
+		for(int i = 0; i < 4; i++) {
+			System.out.println("Revista " + revistas[i]);
+			for(int j = 0; j < 3; j++) {
+				System.out.println("Qtd revista vendida em "+ estados[j]);
+				matriz [i][j] = teclado.nextInt();
+				somaVendas += matriz[i][j];
+				somaRevista[i] += matriz[i][j];
+			};	
+		};
+		
+		System.out.println(" ");
+		
+		//A
+		System.out.println("Porcentagem de vendas");
+		for(int i = 0; i < 4; i++) {
+			porcentagem = (somaRevista[i]/somaVendas)*100;
+			System.out.println(revistas[i] + ":" + porcentagem);
+		};
+		
+		System.out.println(" ");
+		
+		//B
+		System.out.println("Valor por estado");
+		for(int j = 0; j < 3; j++) {
+			for(int i = 0; i < 4; i++)
+			qtdVendasEstado[j] += matriz[i][j]* valorRevista[i];
+			System.out.println(estados[j] + ":" + qtdVendasEstado[j]);
+		};
+		
+		System.out.println(" ");
+		
+		//C
+		System.out.println("Menor venda em SP");
+		for(int i = 0; i < 4; i++) {
+			if(matriz[i][2] < menorVenda) {
+				menorVenda += matriz [i][2];
+				indicadorC = i;
+			}
+		}
+		System.out.println(revistas[indicadorC]);
+		System.out.println(" ");
+		
+		//D
+		System.out.println("Maior circulação");
+		for(int j = 0; j < 3; j++) {
+			for(int i = 0; i < 4; i++) {
+				if(matriz[i][j] > maiorCirculacao[j]) {
+					maiorCirculacao[j] += matriz[i][j];
+					indicadorD[j] = j;
+				}
+			}
+			System.out.println(estados[j] + ":" + revistas[indicadorD[j]]);
+		}
+	}//main
+}
