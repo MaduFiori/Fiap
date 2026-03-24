@@ -1,0 +1,272 @@
+Organização de pastas
+Main - screens 
+	Login
+	Menu
+	Pedidos
+	Perfil
+
+Login
+Tem o package e import antes disso
+
+@Composable
+fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
+
+    // Box é um container usado para organizar elementos na tela.
+    // Aqui ele ocupa a tela inteira, define a cor de fundo rosa
+    // e adiciona um espaçamento interno de 32dp.
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFFED145B))
+            .padding(32.dp)
+    ) {
+
+        // Este texto mostra o título da tela, escrito "LOGIN".
+        // Ele aparece com tamanho 24sp, em negrito e na cor branca.
+        Text(
+            text = "LOGIN",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
+
+        // Botão principal da tela.
+        // Quando o usuário clicar em "ENTRAR",
+        // ele será direcionado para a rota chamada "menu".
+        Button(
+            onClick = { navController.navigate("menu") },
+            colors = ButtonDefaults.buttonColors(Color.White),
+            modifier = Modifier.align(Alignment.Center)
+        ) {
+
+            // Texto exibido dentro do botão.
+            // Ele mostra a palavra "ENTRAR" com tamanho 20sp e cor azul.
+            Text(
+                text = "ENTRAR",
+                fontSize = 20.sp,
+                color = Color.Blue
+            )
+        }
+    }
+}
+
+Menu
+
+@Composable
+fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
+
+    // Box principal que ocupa toda a tela.
+    // Define o fundo azul e um espaçamento interno de 32dp.
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFF2C4EC7))
+            .padding(32.dp)
+    ) {
+
+        // Título da tela exibindo "MENU"
+        // com tamanho 24sp, negrito e cor branca.
+        Text(
+            text = "MENU",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
+
+        // Column organiza os botões na vertical.
+        // Eles ficam centralizados horizontalmente na tela.
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
+        ) {
+
+            // Botão que leva para a tela de perfil
+            Button(
+                onClick = { navController.navigate("perfil") },
+                colors = ButtonDefaults.buttonColors(Color.White),
+                modifier = Modifier.size(width = 200.dp, height = 48.dp)
+            ) {
+                Text(
+                    text = "Perfil",
+                    fontSize = 20.sp,
+                    color = Color.Blue
+                )
+            }
+
+            // Espaçamento entre os botões
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Botão que leva para a tela de pedidos
+            Button(
+                onClick = { navController.navigate("pedidos") },
+                colors = ButtonDefaults.buttonColors(Color.White),
+                modifier = Modifier.size(width = 200.dp, height = 48.dp)
+            ) {
+                Text(
+                    text = "Pedidos",
+                    fontSize = 20.sp,
+                    color = Color.Blue
+                )
+            }
+
+            // Espaçamento entre os botões
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Botão de sair, que retorna para a tela de login
+            Button(
+                onClick = { navController.navigate("login") },
+                colors = ButtonDefaults.buttonColors(Color.White),
+                modifier = Modifier.size(width = 200.dp, height = 48.dp)
+            ) {
+                Text(
+                    text = "Sair",
+                    fontSize = 20.sp,
+                    color = Color.Blue
+                )
+            }
+        }
+    }
+}
+
+Pedidos
+
+@Composable
+fun PedidosScreen(modifier: Modifier = Modifier, navController: NavController) {
+
+    // Box principal que ocupa toda a tela.
+    // Define a cor de fundo e um espaçamento interno de 32dp.
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFFA9A9A9))
+            .padding(32.dp)
+    ) {
+
+        // Texto de título exibindo "PEDIDOS"
+        // com tamanho 24sp, negrito e cor branca.
+        Text(
+            text = "PEDIDOS",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
+
+        // Botão centralizado na tela.
+        // Ao clicar, o usuário volta para a tela de menu.
+        Button(
+            onClick = { navController.navigate("menu") },
+            colors = ButtonDefaults.buttonColors(Color.White),
+            modifier = Modifier.align(Alignment.Center)
+        ) {
+
+            // Texto dentro do botão
+            Text(
+                text = "Voltar",
+                fontSize = 20.sp,
+                color = Color.Blue
+            )
+        }
+    }
+}
+
+Perfil
+
+@Composable
+fun PerfilScreen(modifier: Modifier = Modifier, navController: NavController) {
+
+    // Box principal que ocupa toda a tela.
+    // Define o fundo verde e adiciona espaçamento interno de 32dp.
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .background(Color(0xFF329F6B))
+            .padding(32.dp)
+    ) {
+
+        // Texto de título exibindo "PERFIL"
+        // com tamanho 24sp, negrito e cor branca.
+        Text(
+            text = "PERFIL",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
+
+        // Botão centralizado na tela.
+        // Ao clicar, o usuário volta para a tela de menu.
+        Button(
+            onClick = { navController.navigate("menu") },
+            colors = ButtonDefaults.buttonColors(Color.White),
+            modifier = Modifier.align(Alignment.Center)
+        ) {
+
+            // Texto dentro do botão
+            Text(
+                text = "Voltar",
+                fontSize = 20.sp,
+                color = Color.Blue
+            )
+        }
+    }
+}
+
+Main
+
+class MainActivity : ComponentActivity() {
+
+    // Método executado quando a activity principal é criada
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Faz com que a interface possa ocupar toda a tela,
+        // incluindo as áreas próximas à barra de status e navegação
+        enableEdgeToEdge()
+
+        // Define o conteúdo visual da aplicação usando Jetpack Compose
+        setContent {
+
+            // Aplica o tema visual do aplicativo
+            CheckpointUmTheme() {
+
+                // Scaffold é uma estrutura base para organizar a interface
+                // e controlar áreas como padding interno da tela
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+
+                    // Cria e lembra o controlador de navegação do app
+                    val navController = rememberNavController()
+
+                    // NavHost é responsável por gerenciar as rotas
+                    // e definir qual tela será exibida
+                    NavHost(
+                        navController = navController,
+                        startDestination = "login",
+                    ) {
+
+                        // Define a rota da tela de login
+                        composable(route = "login") {
+                            LoginScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+
+                        // Define a rota da tela de menu
+                        composable(route = "menu") {
+                            MenuScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+
+                        // Define a rota da tela de pedidos
+                        composable(route = "pedidos") {
+                            PedidosScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+
+                        // Define a rota da tela de perfil
+                        composable(route = "perfil") {
+                            PerfilScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
